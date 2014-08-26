@@ -1,7 +1,7 @@
 class Ship
 
-  def initialize
-  	@health = 2
+  def initialize(health = 2)
+  	@health = health
   	@sunk = false
   end
 
@@ -23,12 +23,5 @@ class Ship
     @sunk = true
   end
 
-   def locations
-  	@locations
-   end
-
-  def place_at!(coordinates: [])
-    @locations = coordinates
-  end
 
 end
