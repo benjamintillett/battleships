@@ -9,8 +9,10 @@ class Ship
   	@health
   end
 
-  def sustaindamage!
+  def sustain_damage!
   	@health -= 1
+  	sink! if @health == 0
+  	self
   end
 
   def sunk?
