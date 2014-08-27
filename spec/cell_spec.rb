@@ -1,24 +1,39 @@
 require 'cell'
 
 describe Cell do 
-	it "should contain water on initialization" do 
-		cell = Cell.new
-		expect(cell.content).to eq :water 
+	let(:cell) { Cell.new }
+	let(:water) {double :water, class: Water}
+
+
+	it "Contains water on initialization" do 
+		expect(cell.content).to be_an_instance_of Water 
 	end
-	it "should be able to add a ship" do
-		cell = Cell.new
+	it "Is able to add a ship" do
 		cell.add_ship!
 		expect(cell.content).to eq :ship
 	end
-	it "should not be hit when initialized" do 
-		cell = Cell.new
-		expect(cell).not_to be_hit 
+	
+	it "able to be shot at" do 
+		# water = double :water
+		
+		expect(cell.content).to receive(:receive_shot!)
+		cell.shoot!
 	end
-	it "should be able to be shot at" do
-		cell = Cell.new
+
+	it "Is not shot when initialized" do 
+		expect(cell).not_to be_shot 
+	end
+
+	it "Is marked as shot after being shot at" do
 		cell.shoot!
 		expect(cell).to be_shot
 	end
+
+	it "Is not able to shoot at the same cell twice" do 
+		cell.shoot!
+		expect{ cell.shoot! }.to raise_error 
+	end
+
 
 
 

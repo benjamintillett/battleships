@@ -1,7 +1,6 @@
 class Water
 
-	def receive_shot
-		puts "Splash"
+	def receive_shot!
 		"Splash"
 	end
 

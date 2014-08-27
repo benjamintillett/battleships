@@ -1,17 +1,12 @@
-require 'cell'
+require 'water'
 
 class Cell
 	
 	def initialize
-		@content = :water
+		@content = Water.new
 		@hit = false
 		@shot = false
 	end
-
-	def hit?
-		@hit
-	end
-
 
 	def content
 		@content 
@@ -22,7 +17,9 @@ class Cell
 	end
 
 	def shoot!
+		raise RuntimeError ,"This grid has already been shot! Try another grid! u muppit" if shot?
 		@shot = true
+		@content.receive_shot!
 	end
 
 	def shot?
