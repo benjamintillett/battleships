@@ -1,8 +1,9 @@
 require 'water'
 
 class Cell
-	
-	def initialize(content)
+
+	def initialize(content=Water.new)
+		 
 		@content = content
 		@hit = false
 		@shot = false
@@ -25,8 +26,4 @@ class Cell
 	def shot?
 		@shot
 	end
-
-
-
-
 end

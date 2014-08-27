@@ -2,11 +2,19 @@ require 'cell'
 
 class Board
 
-	def initialize
-		@cells = { :A1 => Cell.new, :A2 => Cell.new, :B1 => Cell.new, :B2 => Cell.new } 
+	attr_reader :health, :cells
+
+	def initialize(cell_hash)
+		@cells = cell_hash
+		@health = 0
 	end
 
-	def cells
-		@cells
+	def add_ship_to(cell_location, ship)
+		@cells[cell_location].add_ship!(ship)
 	end
+
+	def shoot_cell(cell_location)
+		@cells[cell_location].shoot!
+	end
+
 end
