@@ -21,9 +21,3 @@ The application requires the creation of a simplified management system for each
 * CRC model creation: **Classes employed** w/repo (GitHub)
 * Project Domain Model: **Design & implementation** (Classes/Interactions)
 * Project Presentation: **Open discussion of chosen objects & dependent interactions** within the final game version to the Makers Academy cohort.
-
-####**Project Domain Model**
-* Describes key concepts within
-* Relationships between those concepts
-* Understand which classes (collection of data) are needed
-* Understand which methods (will operate on that data)
