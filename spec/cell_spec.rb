@@ -14,8 +14,6 @@ describe Cell do
 	end
 	
 	it "able to be shot at" do 
-		# water = double :water
-		
 		expect(cell.content).to receive(:receive_shot!)
 		cell.shoot!
 	end
@@ -25,17 +23,15 @@ describe Cell do
 	end
 
 	it "Is marked as shot after being shot at" do
+		allow(water).to receive(:receive_shot!)
 		cell.shoot!
 		expect(cell).to be_shot
 	end
 
 	it "Is not able to shoot at the same cell twice" do 
+		allow(water).to receive(:receive_shot!)
 		cell.shoot!
 		expect{ cell.shoot! }.to raise_error 
 	end
-
-
-
-
 
 end
