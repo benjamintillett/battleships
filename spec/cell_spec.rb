@@ -13,7 +13,7 @@ describe Cell do
 		expect(cell.content).to eq ship
 	end
 	
-	it "able to be shot at" do 
+	it "the contents of the cell is git able to be shot at" do 
 		expect(cell.content).to receive(:receive_shot!)
 		cell.shoot!
 	end
