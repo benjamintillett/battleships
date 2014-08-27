@@ -28,6 +28,7 @@ class Board
 
 	def start_playing
 		@in_play = true
+		self
 	end
 
 
