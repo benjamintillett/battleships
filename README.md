@@ -1,5 +1,5 @@
-####**Project Team (alphabetically)**
-Ben Tillett, Faisal Aydarus, Jerome Pratt, Leo Kwok, Marc Singh
+####**Project Team**
+(1)Ben Tillett (2)Faisal Aydarus (3)Jerome Pratt (4)Leo Kwok (5)Marc Singh
 
 ####**Project Focus**
 Advanced OO (Object Oriented) Design & Programming.
