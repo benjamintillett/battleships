@@ -46,9 +46,15 @@ describe Board  do
 	end	
 
 
-	context "a board in play:" do 
+	context ": a board in play:" do 
 
 		let(:board_in_play) { Board.new(cell_hash).start_playing }
+		let(:board_in_play_with_ship) { Board.new(cell_hash).add_ship_to(:A1,ship).start_playing }
+
+		it "should not be able to add ship" do 
+			allow(cell1).to receive(:add_ship_to).with(:A1,ship)
+			expect{ board_in_play.add_ship_to(:A1,ship) }.to raise_error "Game is in play, you can no longer place ships"
+		end
 
 		it "can shoot at a cell" do 
 			expect(cell2).to receive(:shoot!)
@@ -57,15 +63,27 @@ describe Board  do
 
 		it "decrements its health by one if cell containing a ship is shot" do 
 			allow(cell1).to receive(:add_ship!).with(ship)
-			allow(cell1).to receive(:shoot!)  
-			board_in_play.add_ship_to(:A1,ship)	
-			board_in_play.shoot_cell(:A1)
-			expect(board_in_play.health).to eq 0
+			allow(cell1).to receive(:shoot!)  	
+			board_in_play_with_ship.shoot_cell(:A1)
+			expect(board_in_play_with_ship.health).to eq 0
 		end
 
 		it "is in play after it has been started" do
 			board_in_play.start_playing
 			expect(board_in_play).to be_in_play
+		end
+
+		it "knows when all ships have been sunk" do 
+			allow(cell1).to receive(:add_ship!).with(ship)
+			allow(cell1).to receive(:shoot!)  
+			board_in_play_with_ship.shoot_cell(:A1)
+			expect(board_in_play_with_ship.game_over?).to be true 
+		end
+
+		it "knows when all ships have not been sunk" do 
+			allow(cell1).to receive(:add_ship!).with(ship)
+			allow(cell1).to receive(:shoot!)  	
+			expect(board_in_play_with_ship.game_over?).to be false 
 		end
 
 	end

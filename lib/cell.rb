@@ -26,4 +26,6 @@ class Cell
 	def shot?
 		@shot
 	end
+
+
 end
