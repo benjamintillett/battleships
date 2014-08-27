@@ -2,8 +2,8 @@ require 'water'
 
 class Cell
 	
-	def initialize
-		@content = Water.new
+	def initialize(content)
+		@content = content
 		@hit = false
 		@shot = false
 	end
@@ -12,8 +12,8 @@ class Cell
 		@content 
 	end
 
-	def add_ship!
-		@content = :ship
+	def add_ship!(ship)
+		@content = ship
 	end
 
 	def shoot!
