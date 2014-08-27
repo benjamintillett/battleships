@@ -20,12 +20,12 @@ let(:ship) { Ship.new }
   end
 
   it "Should know when it has been damaged" do
-  	ship.sustain_damage!
+  	ship.receive_shot!
   	expect(ship.health).to eq 1
   end
 
   it "Should sink once it has taken enough damage" do 
-  	ship.health.times {ship.sustain_damage!}
+  	ship.health.times {ship.receive_shot!}
   	expect(ship).to be_sunk
   end
 end

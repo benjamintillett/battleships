@@ -9,7 +9,7 @@ class Ship
   	@health
   end
 
-  def sustain_damage!
+  def receive_shot!
   	@health -= 1
   	sink! if @health == 0
   	self
