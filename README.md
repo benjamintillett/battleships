@@ -13,9 +13,9 @@ Following placement of ships on his or her board, **Player 1** then turns to ann
 The application requires the creation of a simplified management system for each players ships, sequential placement, registration of missiles onto grid references and finally, the win or lose result with objects created each time a game is initialized.
 
 ####**Project Objectives**
-* CRC model creation: **Classes employed** w/repo (GitHub)
-* Project Domain Model: **Design & implementation** (Classes/Interactions)
-* Project Presentation: **Open discussion of chosen objects & dependent interactions** within the final game version to the Makers Academy cohort.
+* CRC model creation: **classes employed** w/repo (GitHub)
+* Project Domain Model: **design & Implementation** (Classes/Interactions)
+* Project Presentation: open discussion of **chosen objects & dependent interactions** within the final game version to the Makers Academy cohort.
 
 ####**Domain Model**
 >> Final version awaiting implementation
