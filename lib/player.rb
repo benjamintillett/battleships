@@ -21,7 +21,6 @@ class Player
 
 	def shoot_opponents_board(cell)
 		game.shoot_cell_on_opponents_board(cell)
-
 	end
 
 
