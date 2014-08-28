@@ -23,12 +23,11 @@ class Player
 	def shoot_opponents_board(cell)
 		game.shoot_cell_on_opponents_board(cell)
 	end
-    
-
+   
+	def game_over?
+		if board.game_over? == true
+			@game_over = true
+		end
+	end
 
 end
-
-
-
-
-

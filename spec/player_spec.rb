@@ -37,4 +37,9 @@ describe Player do
 		player.shoot_opponents_board(:A1)
 	end
 
+	it "knows when the game is over" do
+		allow(board).to receive(:game_over?).and_return(true)
+		expect(player.game_over?).to eq true	
+	end
+
 end
