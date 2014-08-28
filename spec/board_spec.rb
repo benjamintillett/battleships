@@ -48,8 +48,8 @@ describe Board  do
 
 	context ": a board in play:" do 
 
-		let(:board_in_play) { Board.new(cell_hash).start_playing }
-		let(:board_in_play_with_ship) { Board.new(cell_hash).add_ship_to(:A1,ship).start_playing }
+		let(:board_in_play) { Board.new(cell_hash).start_playing! }
+		let(:board_in_play_with_ship) { Board.new(cell_hash).add_ship_to(:A1,ship).start_playing! }
 
 
 		it "should not be able to add ship" do 
@@ -70,7 +70,7 @@ describe Board  do
 		end
 
 		it "is in play after it has been started" do
-			board_in_play.start_playing
+			board_in_play.start_playing!
 			expect(board_in_play).to be_in_play
 		end
 

@@ -29,7 +29,7 @@ class Board
 		@in_play
 	end
 
-	def start_playing
+	def start_playing!
 		@in_play = true
 		self
 	end
