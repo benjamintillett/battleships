@@ -19,9 +19,11 @@ class Player
 		board.shoot_cell(cell)
 	end
 
-	# def shoot_cell_on_opponents_board(cell_location)
-	# 	game.shoot_opponents_cells(cell)
-	# end
+	def shoot_opponents_board(cell)
+		game.shoot_cell_on_opponents_board(cell)
+
+	end
+
 
 
 end

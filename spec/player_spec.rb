@@ -23,7 +23,7 @@ describe Player do
 
 	end
 
-	let(:player) {Player.new('Tester', board)}
+	let(:player) {Player.new('Tester', board, game)}
 	let(:ship) { double :ship, add_ship!: nil}
 
 	it "can place a ship" do
@@ -36,6 +36,9 @@ describe Player do
 	 	player.shoot_cell_on_my_board(:A1)
 	 end
 
-
+	it "can shoot a cell location on an opponents board" do
+		expect(game).to receive(:shoot_cell_on_opponents_board).with(:A1)
+		player.shoot_opponents_board(:A1)
+	end
 
 end
