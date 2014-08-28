@@ -5,7 +5,7 @@ class Player
 	attr_reader :name
 	attr_accessor :board
 	
-	def initialize(name= "NoName", board, )
+	def initialize(name= "NoName", board )
 		@board = board
 		@name = name
 	end
