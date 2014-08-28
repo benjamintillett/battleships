@@ -37,4 +37,17 @@ describe Player do
 		player.shoot_opponents_board(:A1)
 	end
 
+	it "knows when the game is over" do
+		allow(board).to receive(:game_over?).and_return(true)
+		expect(player.game_over?).to_be true
+		#allow(player).to receive(:game_over).and_return(true)
+		#expect(board.game_over?).to_be true
+
+
+			#	allow(game).to receive(:get_user_choice).and_return(:A1)
+		# expect(board_in_play_with_ship.game_over?).to be false 
+		# expect(player.board).to receive(:game_over).with(health)
+		# board.health == 0
+	end
+
 end

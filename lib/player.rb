@@ -21,14 +21,10 @@ class Player
 	end
     
 
-    
-
-
-end
-
-	def shoot_opponents_board(cell)
+    def shoot_opponents_board(cell)
 		game.shoot_cell_on_opponents_board(cell)
 	end
 
 
 
+end
