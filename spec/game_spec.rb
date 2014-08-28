@@ -14,6 +14,10 @@ describe Game do
 		expect(game.player1).to be_an_instance_of Player
 		expect(game.player2).to be_an_instance_of Player
 	end
+	it "tell the players to join it once created" do 
+		expect(game.player1.game).to be_an_instance_of Game
+
+	end
 
 	it "gets cell_location from player1 and tells player1 where place its ship" do 
 		allow(game).to receive(:player1).and_return(player1) 

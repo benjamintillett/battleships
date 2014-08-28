@@ -6,9 +6,9 @@ attr_accessor  :player1, :player2
 
 
  	def initialize
-		@player1 = Player.new()
-		# @player1.set_game(self)
-		@player2 = Player.new()
+		@player1 = Player.new("Player1")
+		@player1.join_game(self)
+		@player2 = Player.new("Player2")
 		@ready = false
 	end
 
