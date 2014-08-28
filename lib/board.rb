@@ -41,7 +41,8 @@ class Board
 	def decrement_health
 		@health -=1
 		@game_over = true if @health == 0 
-	end 
+	end
+
 
 
 
