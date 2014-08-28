@@ -1,15 +1,17 @@
-require 'board'
+
 
 class Player 
 
 	attr_reader :name, :game
 	attr_accessor :board
 	
-	def initialize(name= "NoName", board, game)
-
-		@board = board
+	def initialize(name= "NoName", cell_hash={})
+		@board = Board.new(cell_hash)
 		@name = name
-		@game = game
+	end
+
+	def join_game(game)
+		@game = game 
 	end
 
 	def add_ship_to(cell,ship)
@@ -20,15 +22,14 @@ class Player
 		board.shoot_cell(cell)
 	end
     
-
-    
-
-
-end
-
 	def shoot_opponents_board(cell)
 		game.shoot_cell_on_opponents_board(cell)
 	end
+   
+	def game_over?
+		if board.game_over? == true
+			@game_over = true
+		end
+	end
 
-
-
+end
