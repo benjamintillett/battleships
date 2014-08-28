@@ -1,11 +1,12 @@
 require 'game'
+require 'Board'
 
 describe Game do 
-	# let(:board1) { double :board }
-	# let(:board2) { double :board }
-	#let(:game) {Game.new(board1, board2)}
-	let(:player1) {double :player}
+	let(:player1) {double :player }
 	let(:player2) {double :player}
+	let(:ship) {double :ship }
+	let(:cell) { double :cell }
+
 	let(:game) {Game.new(player1, player2)}
 
 	it "can be initialised with two players" do 
@@ -13,16 +14,31 @@ describe Game do
 		expect(game.player2).to eq player2
 	end
 
-
-	xit "can be created with two boards" do 
-		expect(game.board1).to eq board1
-		expect(game.board2).to eq board2
+	it "gets cell_location from player1 and tells player1 where place its ship" do 
+		allow(game).to receive(:get_user_choice).and_return(:A1)
+		expect(game.player1).to receive(:add_ship_to).with(:A1,ship)
+		game.get_player_to_place_ship(player1,ship)
 	end
 
-	xit "can add players" do 
-		game.add_players(player1, player2)
-		expect(game.players.count).to eq 2
+	it "gets cell_location from player2 and tells player2 where place its ship" do 
+		allow(game).to receive(:get_user_choice).and_return(:A1)
+		expect(game.player2).to receive(:add_ship_to).with(:A1,ship)
+		game.get_player_to_place_ship(player2,ship)
 	end
+
+
+
+	it " knows player is not ready to play after intialization" do 
+		expect(game.ready?).to be false
+	end
+
+	it "it knows when player is ready to play" do
+		allow(game).to receive(:get_user_choice).and_return(:A1)
+		allow(game.player1).to receive(:add_ship_to).with(:A1,ship)
+		game.get_player_to_place_ship(player1,ship)
+		expect(game.ready?).to be true
+	end
+
 
 
 end
@@ -31,9 +47,3 @@ end
 
 
 
-# intitialize boards /
-# initialize player one 
-# set player ones details
-# initialize player 2 details 
-# set player 2 details
-# intialize ship and ask for location at the same time 
