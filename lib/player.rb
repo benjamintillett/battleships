@@ -5,11 +5,13 @@ class Player
 	attr_reader :name, :game
 	attr_accessor :board
 	
-	def initialize(name= "NoName", board, game)
-
-		@board = board
+	def initialize(name= "NoName", cell_hash={})
+		@board = Board.new(cell_hash)
 		@name = name
-		@game = game
+	end
+
+	def join_game(game)
+		@game = game 
 	end
 
 	def add_ship_to(cell,ship)

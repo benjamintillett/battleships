@@ -6,21 +6,23 @@ describe Game do
 	let(:player2) {double :player}
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
-	let(:game) {Game.new(player1, player2)}
+	let(:game) {Game.new}
 
 	before { allow(game).to receive(:get_user_choice).and_return(:A1) }
 
-	it "can be initialised with two players" do 
-		expect(game.player1).to eq player1
-		expect(game.player2).to eq player2
+	it "is initialised with two players" do 
+		expect(game.player1).to be_an_instance_of Player
+		expect(game.player2).to be_an_instance_of Player
 	end
 
 	it "gets cell_location from player1 and tells player1 where place its ship" do 
+		allow(game).to receive(:player1).and_return(player1) 
 		expect(game.player1).to receive(:add_ship_to).with(:A1,ship)
 		game.get_player_to_place_ship(player1,ship)
 	end
 
 	it "gets cell_location from player2 and tells player2 where place its ship" do 
+		allow(game).to receive(:player2).and_return(player2) 
 		expect(game.player2).to receive(:add_ship_to).with(:A1,ship)
 		game.get_player_to_place_ship(player2,ship)
 	end
@@ -30,6 +32,7 @@ describe Game do
 	end
 
 	it "it knows when player is ready to play" do
+		allow(game).to receive(:player1).and_return(player1) 
 		allow(game.player1).to receive(:add_ship_to).with(:A1,ship)
 		game.get_player_to_place_ship(player1,ship)
 		expect(game.ready?).to be true
