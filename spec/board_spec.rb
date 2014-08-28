@@ -51,6 +51,7 @@ describe Board  do
 		let(:board_in_play) { Board.new(cell_hash).start_playing }
 		let(:board_in_play_with_ship) { Board.new(cell_hash).add_ship_to(:A1,ship).start_playing }
 
+
 		it "should not be able to add ship" do 
 			allow(cell1).to receive(:add_ship_to).with(:A1,ship)
 			expect{ board_in_play.add_ship_to(:A1,ship) }.to raise_error "Game is in play, you can no longer place ships"
@@ -85,8 +86,5 @@ describe Board  do
 			allow(cell1).to receive(:shoot!)  	
 			expect(board_in_play_with_ship.game_over?).to be false 
 		end
-
 	end
-
-
 end

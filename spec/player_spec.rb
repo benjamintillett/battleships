@@ -2,6 +2,7 @@ require 'player'
 
 describe Player do
 	let(:board) { double :board, class: Board }
+	let(:game) { double :game, class: Game }
 
 	context "On initialization:" do 
 
@@ -14,22 +15,26 @@ describe Player do
 			player = Player.new("Ben", board)
 			expect(player.name).to eq "Ben"  
 		end
+		
+		# it "Has a game" do 
+		# 	player = Player.new("Ben", board, game)
+		# 	expect(player.game.class).to eq game
+		# end
+
 	end
 
 	let(:player) {Player.new('Tester', board)}
 	let(:ship) { double :ship, add_ship!: nil}
 
 	it "can place a ship" do
-		allow(board).to receive(:new).and_return board
-		
 		expect(player.board).to receive(:add_ship_to).with(:A1,ship)
 		player.add_ship_to(:A1,ship)
 	end 
 
-	it "can shoot a cell location" do
-		player.shoot_cell(:A1)
-		expect(board).to receive(:shoot_cell).with(cell_location)
-	end
+	# it "can shoot a cell location" do
+	# 	expect(player.board).to receive(:shoot_cell).with(:A1)
+	# 	player.shoot_cell(:A1)
+	# end
 
 
 
