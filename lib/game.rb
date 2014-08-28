@@ -7,7 +7,7 @@ attr_accessor  :player1, :player2
 
  	def initialize(player1,player2)
 		@player1 = player1
-		@player2 = player2
+		@playefr2 = player2
 		@ready = false
 	end
 
@@ -28,5 +28,10 @@ attr_accessor  :player1, :player2
  		@ready
  	end 
 
+ 	def get_player_to_shoot_its_board(player)
+     puts "Player 1 choose which of player two's cells to shoot at"
+     cell = get_user_choice 
+     player.shoot_cell_on_my_board(cell)
+    end
 end
 

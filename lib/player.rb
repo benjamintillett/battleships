@@ -1,4 +1,4 @@
-require 'board'
+
 
 class Player 
 
@@ -20,15 +20,15 @@ class Player
 		board.shoot_cell(cell)
 	end
     
-
+	def shoot_opponents_board(cell)
+		game.shoot_cell_on_opponents_board(cell)
+	end
     
 
 
 end
 
-	def shoot_opponents_board(cell)
-		game.shoot_cell_on_opponents_board(cell)
-	end
+
 
 
 
