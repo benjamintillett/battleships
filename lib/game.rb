@@ -43,6 +43,10 @@ attr_accessor  :player1, :player2
     player2.start_players_game
 	end
 
+	def game_over?
+		board.game_over?
+	end
+
 
 end
 

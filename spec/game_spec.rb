@@ -17,6 +17,7 @@ describe Game do
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
 	let(:game) {Game.new(cell_hash,cell_hash2)} 
+	let(:board) {double :board}
 
 	before { allow(game).to receive(:get_user_choice).and_return(:A1) }
 
@@ -72,11 +73,10 @@ describe Game do
 		game.start_game
 	end
 
-	it "should be able to finish" do
+	it "should be able to check when the game is finished" do
 		allow(game).to receive(:board).and_return(board)
-		allow(board).to receive(:game_over?).and_return(true)
-		expect(game.game_over?).to eq true
-		game.game_over
+		expect(board).to receive(:game_over?)
+		game.game_over?
 	end
 
 
