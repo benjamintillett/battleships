@@ -22,9 +22,6 @@ class Player
 		board.shoot_cell(cell)
 	end
     
-	def shoot_opponents_board(cell)
-		game.shoot_cell_on_opponents_board(cell)
-	end
    
 	def game_over?
 		board.game_over?
