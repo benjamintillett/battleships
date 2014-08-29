@@ -27,4 +27,7 @@ class Player
 		board.game_over?
 	end
 
+	
+	
+
 end

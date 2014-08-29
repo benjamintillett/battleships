@@ -66,7 +66,7 @@ describe Game do
 
 	it "should be able to start game for a player" do 
 		expect(game.player1).to receive(:start_players_game)
-		game.start_game(player1)
+		game.start_game
 	end
 end
 

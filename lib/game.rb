@@ -37,5 +37,11 @@ attr_accessor  :player1, :player2
      cell = get_user_choice 
      player.shoot_cell_on_my_board(cell)
     end
+
+    def start_game
+    player1.start_players_game
+	end
+
+
 end
 
