@@ -27,7 +27,12 @@ class Player
 		board.game_over?
 	end
 
+	def start_players_game
+		board.start_playing!
+	end
+
+
 	
-	
+
 
 end

@@ -6,7 +6,7 @@ describe Player do
 	let(:cell3) { double :cell }
 	let(:cell4) { double :cell }	
 	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
-	let(:board) { double :board, class: Board }
+	let(:board) { double :board, class: Board}
 	let(:game) { double :game, class: Game }
 	let(:player) {Player.new("Ben", cell_hash)}
 	let(:ship) { double :ship, add_ship!: nil}
@@ -50,8 +50,9 @@ describe Player do
 
 	it "can set it's board to in_play" do 
 		allow(player).to receive(:board).and_return(board)
-		player.start_players_game
+		allow(player.board).to receive(:start_playing!)
 		expect(player.board).to receive(:start_playing!)
+		player.start_players_game
 	end
 
 
