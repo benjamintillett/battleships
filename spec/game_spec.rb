@@ -12,8 +12,8 @@ describe Game do
 	let(:cell8) { double :cell }
 	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
 	let(:cell_hash2) { {:A1 => cell5, :A2 => cell6 , :B1 => cell7, :B2 => cell8 } }
-	let(:player1) {double :player, name: "Player1" }
-	let(:player2) {double :player, name: "Player2" }
+	let(:player1) {double :player, name: "Player1", start_players_game: nil }
+	let(:player2) {double :player, name: "Player2", start_players_game: nil }
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
 	let(:game) {Game.new(cell_hash,cell_hash2)} 
@@ -64,15 +64,14 @@ describe Game do
 		game.get_player_to_shoot_its_board(player1)
 	end	
 
-	it "should be able to start game for a player" do 
-		expect(game.player1).to receive(:start_players_game)
+	it "should be able to start game for the players" do 
+		allow(game).to receive(:player1).and_return(player1)
+		allow(game).to receive(:player2).and_return(player2)
+		expect(player1).to receive(:start_players_game)
+		expect(player2).to receive(:start_players_game)
 		game.start_game
 	end
 
-	it "should be able to start game for 2 players" do
-		expect(game.player2).to receive(:start_players_game)
-		game.start_game
-	end
 
 end
 

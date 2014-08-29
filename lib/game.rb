@@ -40,6 +40,7 @@ attr_accessor  :player1, :player2
 
     def start_game
     player1.start_players_game
+    player2.start_players_game
 	end
 
 
