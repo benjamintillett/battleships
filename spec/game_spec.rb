@@ -2,11 +2,16 @@ require 'game'
 require 'Board'
 
 describe Game do 
+	let(:cell1) { double :cell }
+	let(:cell2) { double :cell }
+	let(:cell3) { double :cell }
+	let(:cell4) { double :cell }
+	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
 	let(:player1) {double :player }
 	let(:player2) {double :player}
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
-	let(:game) {Game.new}
+	let(:game) {Game.new(cell_hash)} 
 
 	before { allow(game).to receive(:get_user_choice).and_return(:A1) }
 
@@ -16,6 +21,7 @@ describe Game do
 	end
 	it "tell the players to join it once created" do 
 		expect(game.player1.game).to be_an_instance_of Game
+		expect(game.player2.game).to be_an_instance_of Game
 
 	end
 
