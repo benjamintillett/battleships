@@ -72,6 +72,14 @@ describe Game do
 		game.start_game
 	end
 
+	it "should be able to finish" do
+		allow(game).to receive(:board).and_return(board)
+		allow(board).to receive(:game_over?).and_return(true)
+		expect(game.game_over?).to eq true
+		game.game_over
+	end
+
+
 
 end
 
