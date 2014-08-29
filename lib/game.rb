@@ -5,10 +5,10 @@ class Game
 attr_accessor  :player1, :player2
 
 
- 	def initialize(cell_hash, cell_hash2)
-		@player1 = Player.new("Player1",cell_hash)
+ 	def initialize(size)
+		@player1 = Player.new("Player1",size)
 		@player1.join_game(self)
-		@player2 = Player.new("Player2",cell_hash2)
+		@player2 = Player.new("Player2",size)
 		@player2.join_game(self)
 		@ready = false
 	end
@@ -16,9 +16,8 @@ attr_accessor  :player1, :player2
 
 	def get_player_to_place_ship(player,ship)
 	    puts "#{player.name} please enter cell"
-		cell = get_user_choice
-	    p cell
-	    player.add_ship_to(cell, ship)
+		x_coordinate,y_coordinate = get_user_choice
+	    player.add_ship_to(x_coordinate,y_coordinate, ship)
 	    @ready = true
     end
 
@@ -34,8 +33,8 @@ attr_accessor  :player1, :player2
  	def get_player_to_shoot_its_board(player)
      puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
      puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
-     cell = get_user_choice 
-     player.shoot_cell_on_my_board(cell)
+     x_coordinate,y_coordinate = get_user_choice 
+     player.shoot_cell_on_my_board(x_coordinate,y_coordinate)
     end
 end
 
