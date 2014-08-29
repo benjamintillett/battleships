@@ -36,9 +36,9 @@ describe Board  do
 			expect(board.health).to eq 1 
 		end
 
-		it "board cannot shoot" do 
+		fit "board cannot shoot" do 
 			allow(cell1).to receive(:shoot!)
-			expect{ board.shoot_cell(:A1) }.to raise_error "Game has not started!!!"
+			expect{ board.shoot_cell(0,0) }.to raise_error "Game has not started!!!"
 		end
 
 	end	

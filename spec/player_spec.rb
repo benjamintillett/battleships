@@ -8,17 +8,13 @@ describe Player do
 	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
 	let(:board) { double :board, class: Board }
 	let(:game) { double :game, class: Game }
-	let(:player) {Player.new("Ben", cell_hash)}
+	let(:player) {Player.new("Ben", 10)}
 	let(:ship) { double :ship, add_ship!: nil}
 
 	context "On initialization:" do 
 
 		it "creates a board" do
 			expect(player.board.class).to eq Board
-		end
-
-		it "creates a board with correct cells" do 
-			expect(player.board.cells).to eq cell_hash
 		end
 
 		it "Has a name" do
@@ -33,21 +29,15 @@ describe Player do
 	end
 
 	it "can place a ship" do
-		expect(player.board).to receive(:add_ship_to).with(:A1,ship)
-		player.add_ship_to(:A1,ship)
+		expect(player.board).to receive(:add_ship_to).with(0,0,ship)
+		player.add_ship_to(0,0,ship)
 	end 
 
 	it "can shoot a cell location on my board" do
-	 	expect(player.board).to receive(:shoot_cell).with(:A1)
-	 	player.shoot_cell_on_my_board(:A1)
+	 	expect(player.board).to receive(:shoot_cell).with(0,0)
+	 	player.shoot_cell_on_my_board(0,0)
 	 end
-
-	xit "can shoot a cell location on an opponents board" do
-		expect(game).to receive(:shoot_cell_on_opponents_board).with(:A1)
-		puts player.inspect
-		player.shoot_opponents_board(:A1)
-	end
-
+	 
 	it "knows when the game is over" do
 		allow(player).to receive(:board).and_return(board)
 		allow(board).to receive(:game_over?).and_return(true)
