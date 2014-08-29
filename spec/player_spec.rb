@@ -1,6 +1,7 @@
 require 'player'
 
 describe Player do
+
 	let(:board) { double :board, class: Board }
 	let(:game) { double :game, class: Game }
 	let(:player) {Player.new("Ben", 10)}
@@ -38,5 +39,17 @@ describe Player do
 		allow(board).to receive(:game_over?).and_return(true)
 		expect(player.game_over?).to eq true	
 	end
+
+	it "can set it's board to in_play" do 
+		allow(player).to receive(:board).and_return(board)
+		allow(player.board).to receive(:start_playing!)
+		expect(player.board).to receive(:start_playing!)
+		player.start_players_game
+	end
+
+
+
+
+
 
 end

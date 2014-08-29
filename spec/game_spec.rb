@@ -2,11 +2,12 @@ require 'game'
 require 'Board'
 
 describe Game do 
-	let(:player1) {double :player, name: "Player1" }
-	let(:player2) {double :player, name: "Player2" }
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
 	let(:game) {Game.new(10)} 
+	let(:player1) {double :player, name: "Player1", start_players_game: nil }
+	let(:player2) {double :player, name: "Player2", start_players_game: nil }
+	let(:board) {double :board}
 
 	before { 
 		allow(game).to receive(:get_user_x_coordinate).and_return(0) 
@@ -56,6 +57,23 @@ describe Game do
 		expect(game.player1).to receive(:shoot_cell_on_my_board).with(0,0)		
 		game.get_player_to_shoot_its_board(player1)
 	end	
+
+	it "should be able to start game for the players" do 
+		allow(game).to receive(:player1).and_return(player1)
+		allow(game).to receive(:player2).and_return(player2)
+		expect(player1).to receive(:start_players_game)
+		expect(player2).to receive(:start_players_game)
+		game.start_game
+	end
+
+	it "should be able to check when the game is finished" do
+		allow(game).to receive(:board).and_return(board)
+		expect(board).to receive(:game_over?)
+		game.game_over?
+	end
+
+
+
 end
 
 

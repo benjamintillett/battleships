@@ -45,5 +45,16 @@ attr_accessor  :player1, :player2
 	 y_coordinate = get_user_y_coordinate
      player.shoot_cell_on_my_board(x_coordinate,y_coordinate)
     end
+
+    def start_game
+    player1.start_players_game
+    player2.start_players_game
+	end
+
+	def game_over?
+		board.game_over?
+	end
+
+
 end
 
