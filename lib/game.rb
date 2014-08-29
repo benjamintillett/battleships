@@ -5,10 +5,10 @@ class Game
 attr_accessor  :player1, :player2
 
 
- 	def initialize(cell_hash)
+ 	def initialize(cell_hash, cell_hash2)
 		@player1 = Player.new("Player1",cell_hash)
 		@player1.join_game(self)
-		@player2 = Player.new("Player2",cell_hash)
+		@player2 = Player.new("Player2",cell_hash2)
 		@player2.join_game(self)
 		@ready = false
 	end

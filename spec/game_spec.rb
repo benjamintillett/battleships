@@ -6,12 +6,17 @@ describe Game do
 	let(:cell2) { double :cell }
 	let(:cell3) { double :cell }
 	let(:cell4) { double :cell }
+	let(:cell5) { double :cell }
+	let(:cell6) { double :cell }
+	let(:cell7) { double :cell }
+	let(:cell8) { double :cell }
 	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
+	let(:cell_hash2) { {:A1 => cell5, :A2 => cell6 , :B1 => cell7, :B2 => cell8 } }
 	let(:player1) {double :player, name: "Player1" }
 	let(:player2) {double :player, name: "Player2" }
 	let(:ship) {double :ship }
 	let(:cell) { double :cell }
-	let(:game) {Game.new(cell_hash)} 
+	let(:game) {Game.new(cell_hash,cell_hash2)} 
 
 	before { allow(game).to receive(:get_user_choice).and_return(:A1) }
 
