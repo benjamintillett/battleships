@@ -27,9 +27,7 @@ class Player
 	end
    
 	def game_over?
-		if board.game_over? == true
-			@game_over = true
-		end
+		board.game_over?
 	end
 
 end
