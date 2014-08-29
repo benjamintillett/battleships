@@ -4,24 +4,24 @@ class Board
 
 	attr_reader :health, :cells
 
-	def initialize(cell_hash)
-		@cells = cell_hash 
+	def initialize(grid_size)
+		@cells = Grid.new(10).cells
 		@health = 0
 		@in_play = false
 		@game_over = false
 
 	end
 
-	def add_ship_to(cell_location, ship)
+	def add_ship_to(x_coordinate,y_coordinate,ship)
 		raise RuntimeError ,"Game is in play, you can no longer place ships" if in_play?
-		@cells[cell_location].add_ship!(ship)
+		@cells[x_coordinate,y_coordinate].add_ship!(ship)
 		@health +=1
 		self
 	end
 
-	def shoot_cell(cell_location)
+	def shoot_cell(x_coordinate,y_coordinate)
 		raise RuntimeError , "Game has not started!!!" if @in_play == false
-		@cells[cell_location].shoot!
+		@cells[x_coordinate,y_coordinate].shoot!
 		decrement_health
 	end
 
@@ -42,8 +42,5 @@ class Board
 		@health -=1
 		@game_over = true if @health == 0 
 	end
-
-
-
 
 end
