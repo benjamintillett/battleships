@@ -16,12 +16,12 @@ let(:ship) { Ship.new }
   end
 
   it "Should initialize with a default amount of health" do
-  	expect(ship.health).to eq 2
+  	expect(ship.health).to eq 1
   end
 
   it "Should know when it has been damaged" do
   	ship.receive_shot!
-  	expect(ship.health).to eq 1
+  	expect(ship.health).to eq 0
   end
 
   it "Should sink once it has taken enough damage" do 

@@ -4,7 +4,6 @@ class Cell
 	def initialize(content=Water.new)
 		 
 		@content = content
-		@hit = false
 		@shot = false
 	end
 

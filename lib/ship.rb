@@ -1,6 +1,6 @@
 class Ship
 
-  def initialize(health = 2)
+  def initialize(health = 1)
   	@health = health
   	@sunk = false
   end

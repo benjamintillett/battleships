@@ -15,7 +15,7 @@ attr_accessor  :player1, :player2
 
 
 	def get_player_to_place_ship(player,ship)
-	    puts "Player1 please enter cell"
+	    puts "#{player.name} please enter cell"
 		cell = get_user_choice
 	    p cell
 	    player.add_ship_to(cell, ship)
