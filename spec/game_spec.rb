@@ -63,6 +63,11 @@ describe Game do
 		expect(game.player1).to receive(:shoot_cell_on_my_board).with(:A1)		
 		game.get_player_to_shoot_its_board(player1)
 	end	
+
+	it "should be able to start game for a player" do 
+		expect(game.player1).to receive(:start_players_game)
+		game.start_game(player1)
+	end
 end
 
 
