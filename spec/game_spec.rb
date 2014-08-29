@@ -68,6 +68,12 @@ describe Game do
 		expect(game.player1).to receive(:start_players_game)
 		game.start_game
 	end
+
+	it "should be able to start game for 2 players" do
+		expect(game.player2).to receive(:start_players_game)
+		game.start_game
+	end
+
 end
 
 
