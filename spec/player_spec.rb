@@ -42,16 +42,19 @@ describe Player do
 	 	player.shoot_cell_on_my_board(:A1)
 	 end
 
-	xit "can shoot a cell location on an opponents board" do
-		expect(game).to receive(:shoot_cell_on_opponents_board).with(:A1)
-		puts player.inspect
-		player.shoot_opponents_board(:A1)
-	end
-
 	it "knows when the game is over" do
 		allow(player).to receive(:board).and_return(board)
 		allow(board).to receive(:game_over?).and_return(true)
 		expect(player.game_over?).to eq true	
 	end
+
+	it "can set it's board to in_play" do 
+		allow(player).to receive(:board).and_return(board)
+		player.start_players_game
+		expect(player.board).to receive(:start_playing!)
+	end
+
+
+
 
 end
