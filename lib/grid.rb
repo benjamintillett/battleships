@@ -1,5 +1,6 @@
 require 'matrix'
-require 'cell'
+
+
 class Grid
 
 	attr_reader :size, :cells

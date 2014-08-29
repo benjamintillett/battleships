@@ -1,11 +1,6 @@
 require 'player'
 
 describe Player do
-	let(:cell1) { double :cell }
-	let(:cell2) { double :cell }
-	let(:cell3) { double :cell }
-	let(:cell4) { double :cell }	
-	let(:cell_hash) { {:A1 => cell1, :A2 => cell2 , :B1 => cell3, :B2 => cell4 } }
 	let(:board) { double :board, class: Board }
 	let(:game) { double :game, class: Game }
 	let(:player) {Player.new("Ben", 10)}
@@ -34,10 +29,10 @@ describe Player do
 	end 
 
 	it "can shoot a cell location on my board" do
-	 	expect(player.board).to receive(:shoot_cell).with(0,0)
-	 	player.shoot_cell_on_my_board(0,0)
+	 	expect(player.board).to receive(:shoot_cell).with(1,0)
+	 	player.shoot_cell_on_my_board(1,0)
 	 end
-	 
+
 	it "knows when the game is over" do
 		allow(player).to receive(:board).and_return(board)
 		allow(board).to receive(:game_over?).and_return(true)

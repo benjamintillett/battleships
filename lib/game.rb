@@ -15,16 +15,24 @@ attr_accessor  :player1, :player2
 
 
 	def get_player_to_place_ship(player,ship)
-	    puts "#{player.name} please enter cell"
-		x_coordinate,y_coordinate = get_user_choice
+	    puts "#{player.name}, where would you lke to shoot?"
+	    x_coordinate = get_user_x_coordinate
+		y_coordinate = get_user_y_coordinate
 	    player.add_ship_to(x_coordinate,y_coordinate, ship)
 	    @ready = true
     end
 
 
-    def get_user_choice
-    	gets.chomp
+    def get_user_x_coordinate
+    	puts "please enter the x coordinate"
+    	gets.chomp.to_i
     end
+    
+    def get_user_y_coordinate
+    	puts "please enter the y coordinate"
+    	gets.chomp.to_i
+    end
+
 
  	def ready?
  		@ready
@@ -33,7 +41,8 @@ attr_accessor  :player1, :player2
  	def get_player_to_shoot_its_board(player)
      puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
      puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
-     x_coordinate,y_coordinate = get_user_choice 
+     x_coordinate = get_user_x_coordinate
+	 y_coordinate = get_user_y_coordinate
      player.shoot_cell_on_my_board(x_coordinate,y_coordinate)
     end
 end

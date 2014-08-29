@@ -8,7 +8,10 @@ describe Game do
 	let(:cell) { double :cell }
 	let(:game) {Game.new(10)} 
 
-	before { allow(game).to receive(:get_user_choice).and_return([0,0]) }
+	before { 
+		allow(game).to receive(:get_user_x_coordinate).and_return(0) 
+		allow(game).to receive(:get_user_y_coordinate).and_return(0) 
+	}
 
 	it "is initialised with two players" do 
 		expect(game.player1).to be_an_instance_of Player
