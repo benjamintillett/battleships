@@ -17,23 +17,25 @@ attr_accessor  :player1, :player2
 	def get_player_to_place_ship(player,ship)
 	    puts "Player1 please enter cell"
 		cell = get_user_choice
+	    p cell
 	    player.add_ship_to(cell, ship)
 	    @ready = true
     end
 
 
     def get_user_choice
-    	gets.chomp	
+    	gets.chomp
     end
 
  	def ready?
  		@ready
  	end 
 
- 	# def get_player_to_shoot_its_board(player)
-  #    puts "Player 1 choose which of player two's cells to shoot at"
-  #    cell = get_user_choice 
-  #    player.shoot_cell_on_my_board(cell)
-  #   end
+ 	def get_player_to_shoot_its_board(player)
+     puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
+     puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
+     cell = get_user_choice 
+     player.shoot_cell_on_my_board(cell)
+    end
 end
 
