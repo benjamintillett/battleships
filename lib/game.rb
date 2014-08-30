@@ -39,22 +39,25 @@ attr_accessor  :player1, :player2
  	end 
 
  	def get_player_to_shoot_its_board(player)
-     puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
-     puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
-     x_coordinate = get_user_x_coordinate
-	 y_coordinate = get_user_y_coordinate
-     player.shoot_cell_on_my_board(x_coordinate,y_coordinate)
+     	print_shot_request(player)
+     	x_coordinate = get_user_x_coordinate
+	 	y_coordinate = get_user_y_coordinate
+     	player.shoot_cell_on_my_board(x_coordinate,y_coordinate)
     end
 
     def start_game
-    player1.start_players_game
-    player2.start_players_game
+    	player1.start_players_game
+    	player2.start_players_game
 	end
 
 	def game_over?
 		board.game_over?
 	end
 
+	def print_shot_request(player)
+		puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
+     	puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
+    end
 
 end
 
