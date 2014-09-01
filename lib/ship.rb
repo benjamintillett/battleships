@@ -1,7 +1,8 @@
 class Ship
 
-  def initialize(health = 1)
-  	@health = health
+  def initialize(size = 1)
+    @size = size
+  	@health = size
   	@sunk = false
   end
 

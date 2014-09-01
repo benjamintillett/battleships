@@ -11,6 +11,6 @@ class Grid
 	end
 
 	def build_grid
-		Matrix.build(10) { Cell.new }
+		Matrix.build(size) { Cell.new }
 	end
 end

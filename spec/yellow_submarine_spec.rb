@@ -9,7 +9,7 @@ describe YellowSubmarine do
 
 it "ship has a name" do
 	sub = YellowSubmarine.new
-	expect(sub.ShipsName).to eq "submarine"
+	expect(sub.name).to eq "submarine"
 
 end
 

@@ -6,7 +6,7 @@ class Board
 	attr_accessor  :in_play, :health, :game_over
 
 	def initialize(grid_size)
-		@cells = Grid.new(10).cells
+		@cells = Grid.new(grid_size).cells
 		@health = 0
 		@in_play = false
 		@game_over = false
@@ -16,8 +16,14 @@ class Board
 	def add_ship_to(x_coordinate,y_coordinate,ship)
 		raise RuntimeError ,"Game is in play, you can no longer place ships" if in_play?
 		cell(x_coordinate,y_coordinate).add_ship!(ship)
+
 		self.health +=1
 		self
+	end
+
+	def ship_placment ()
+	
+		
 	end
 
 	def shoot_cell(x_coordinate,y_coordinate)
