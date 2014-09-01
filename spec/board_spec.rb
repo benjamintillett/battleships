@@ -7,7 +7,7 @@ describe Board  do
 	let(:cell3) { double :cell }
 	let(:cell4) { double :cell }
 	let(:board) { Board.new(10) }
-	let(:ship) { double :ship }
+	let(:ship) { double :ship, health: 3 }
 
 	context "initialization:" do 
 
@@ -43,8 +43,9 @@ describe Board  do
 
 		it "can add a ship to multiple cells at a time" do 
 			expect(board.cells[0,0]).to receive(:add_ship!).with(ship)
-			expect(board.cells[1,0]).to receive(:add_ship!).with(ship)
-			expect(board.cells[2,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[0,1]).to receive(:add_ship!).with(ship)
+			expect(board.cells[0,2]).to receive(:add_ship!).with(ship)
+			expect(board.cells[0,3]).not_to receive(:add_ship!).with(ship)
 			board.add_ship_towards_right(0,0, ship)
 		end
 
