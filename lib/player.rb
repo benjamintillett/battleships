@@ -22,7 +22,6 @@ class Player
 		board.shoot_cell(x_coordinate,y_coordinate)
 	end
     
-   
 	def game_over?
 		board.game_over?
 	end
