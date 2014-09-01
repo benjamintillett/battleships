@@ -1,13 +1,14 @@
 require_relative 'ship'
 
-class YellowSubmarine < Ship
+class Destroyer < Ship
 	SIZE = 3
-
+	
 	def initialize
 		super SIZE
 	end
+
 def ShipsName 
-	shipsname = "submarine"
-end
+	shipsname = "Destroyer"
+    end
 
 end

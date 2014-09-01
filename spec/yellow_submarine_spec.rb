@@ -7,5 +7,10 @@ describe YellowSubmarine do
 		expect(sub.health).to eq 3
 	end
 
+it "ship has a name" do
+	sub = YellowSubmarine.new
+	expect(sub.ShipsName).to eq "submarine"
+
+end
 
 end
