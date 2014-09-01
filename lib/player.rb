@@ -2,8 +2,8 @@
 
 class Player 
 
-	attr_reader :name, :game
-	attr_accessor :board
+	attr_reader :name
+	attr_accessor :board, :game
 	
 	def initialize(name= "NoName", board_size)
 		@board = Board.new(board_size)
@@ -11,7 +11,7 @@ class Player
 	end
 
 	def join_game(game)
-		@game = game 
+		self.game = game 
 	end
 
 	def add_ship_to(x_coordinate,y_coordinate,ship)
@@ -22,7 +22,6 @@ class Player
 		board.shoot_cell(x_coordinate,y_coordinate)
 	end
     
-   
 	def game_over?
 		board.game_over?
 	end
