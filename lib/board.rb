@@ -10,7 +10,6 @@ class Board
 		@health = 0
 		@in_play = false
 		@game_over = false
-
 	end
 
 	def add_ship_to(x_coordinate,y_coordinate,ship)
@@ -25,10 +24,14 @@ class Board
 		(0...ship.health).each do |n|
 			add_ship_to(y_coordinate, (x_coordinate + n),ship)			
 		end
-
-		# add_ship_to((x_coordinate + 1),y_coordinate,ship)
-		# add_ship_to((x_coordinate + 2),y_coordinate,ship)
 	end
+
+	def add_ship_downwards(x_coordinate, y_coordinate, ship)
+		(0...ship.health).each do |n|
+			add_ship_to((y_coordinate + n), x_coordinate ,ship)			
+		end
+	end
+
 
 	def shoot_cell(x_coordinate,y_coordinate)
 		raise RuntimeError , "Game has not started!!!" unless in_play? 

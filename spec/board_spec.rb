@@ -41,7 +41,7 @@ describe Board  do
 			expect{ board.shoot_cell(0,0) }.to raise_error "Game has not started!!!"
 		end
 
-		it "can add a ship to multiple cells at a time" do 
+		it "can add a ship to multiple cells at a time horizontally" do 
 			expect(board.cells[0,0]).to receive(:add_ship!).with(ship)
 			expect(board.cells[0,1]).to receive(:add_ship!).with(ship)
 			expect(board.cells[0,2]).to receive(:add_ship!).with(ship)
@@ -49,7 +49,13 @@ describe Board  do
 			board.add_ship_towards_right(0,0, ship)
 		end
 
-
+		it "can add a ship to multiple cells at a time vertically" do
+		   expect(board.cells[0,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[1,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[2,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[3,0]).not_to receive(:add_ship!).with(ship)
+			board.add_ship_downwards(0,0, ship)
+		end
 	end	
 
 
