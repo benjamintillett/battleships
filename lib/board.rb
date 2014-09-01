@@ -21,9 +21,10 @@ class Board
 		self
 	end
 
-	def ship_placment ()
-	
-		
+	def add_ship_towards_right(x_coordinate, y_coordinate, ship)
+		add_ship_to(x_coordinate,y_coordinate,ship)
+		add_ship_to((x_coordinate + 1),y_coordinate,ship)
+		add_ship_to((x_coordinate + 2),y_coordinate,ship)
 	end
 
 	def shoot_cell(x_coordinate,y_coordinate)

@@ -18,6 +18,7 @@ class Player
 		board.add_ship_to(x_coordinate,y_coordinate, ship)
 	end
 
+
 	def shoot_cell_on_my_board(x_coordinate,y_coordinate) #receiving opponents shots
 		board.shoot_cell(x_coordinate,y_coordinate)
 	end

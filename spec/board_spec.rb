@@ -11,7 +11,7 @@ describe Board  do
 
 	context "initialization:" do 
 
-		it "can be initialized with an matrix of cells" do 
+		it "can be initialized with a matrix of cells" do 
 			expect(board.cells[9,9]).to be_an_instance_of Cell
 		end
 
@@ -40,6 +40,14 @@ describe Board  do
 			allow(cell1).to receive(:shoot!)
 			expect{ board.shoot_cell(0,0) }.to raise_error "Game has not started!!!"
 		end
+
+		it "can add a ship to multiple cells at a time" do 
+			expect(board.cells[0,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[1,0]).to receive(:add_ship!).with(ship)
+			expect(board.cells[2,0]).to receive(:add_ship!).with(ship)
+			board.add_ship_towards_right(0,0, ship)
+		end
+
 
 	end	
 

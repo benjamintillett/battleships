@@ -12,5 +12,4 @@ class AircraftCarrier < Ship
 	end
 
 
-
 end

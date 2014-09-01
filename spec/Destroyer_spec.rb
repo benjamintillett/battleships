@@ -1,4 +1,4 @@
-require 'Destroyer.rb'
+require 'destroyer.rb'
 
 describe Destroyer do 
 
@@ -10,7 +10,6 @@ describe Destroyer do
 it "ship has a name" do
 	destroyerboat = Destroyer.new
 	expect(destroyerboat.name).to eq "Destroyer"
-
 end
 
 end

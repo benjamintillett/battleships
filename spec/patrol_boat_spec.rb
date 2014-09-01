@@ -1,4 +1,4 @@
-require 'PatrolBoat.rb'
+require 'patrol_boat.rb'
 
 describe PatrolBoat do 
 
@@ -7,10 +7,9 @@ describe PatrolBoat do
 		expect(patrol_boat.health).to eq 2
 	end
 
-it "ship has a name" do
-	patrol_boat= PatrolBoat.new
-	expect(patrol_boat.name).to eq "Patrol Boat"
-
-end
+	it "ship has a name" do
+		patrol_boat= PatrolBoat.new
+		expect(patrol_boat.name).to eq "Patrol Boat"
+	end
 
 end
