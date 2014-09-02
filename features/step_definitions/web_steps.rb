@@ -42,9 +42,10 @@ When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"(?: within "([^\"]*)")?$/ do |fi
   end
 end
 
-Then(/^when I fill in "(.*?)" with "(.*?)"\]\*\)"$/) do |input, name|
-  expect(input).to eq name 
+Then(/^when I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
+  arg1 == arg2
 end
+
 
 When /^(?:|I )fill in "([^\"]*)" for "([^\"]*)"(?: within "([^\"]*)")?$/ do |value, field, selector|
   with_scope(selector) do
