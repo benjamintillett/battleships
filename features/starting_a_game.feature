@@ -9,6 +9,6 @@ Feature: Starting the game
 		Given I am on the homepage
 		When I follow "New Game"
 		Then I should see "What's your name?"
-		And when I fill in "name" with "Jerome"
+		And I press "submit"
 		Then I should see "Welcome to the game"
 
