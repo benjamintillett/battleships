@@ -1,5 +1,5 @@
 ####**Project Team**
-**(1)** Ben Tillett **(2)** F.Aydarus **(3)** Jerome Pratt **(4)** Leo Kwok **(5)** Marc Singh
+**(1)** Ben Tillett **(2)** F.Aydarus **(3)** Jerome Pratt **(4)** Leo Kwok
 
 ####**Project Focus**
 Advanced OO (Object Oriented) Design & Programming.
